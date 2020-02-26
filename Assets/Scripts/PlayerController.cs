@@ -2,15 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1;
     private Vector3 _direction;
 
+    public Canvas hud;
+
+    private int score = 0;
+    private Text _scoreText;
+    private Text _healthText;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        _healthText = hud.transform.Find("Health").GetComponent<UnityEngine.UI.Text>();
+        _scoreText = hud.transform.Find("Score").GetComponent<UnityEngine.UI.Text>();
+        
+        _scoreText.text = "Score: 0";
+        _healthText.text = "Health: 5";
    
     }
 
@@ -53,6 +67,16 @@ public class PlayerController : MonoBehaviour
 
         return true;
 
+    }
+
+    void OnTriggerEnter(Collider other) {
+
+        if (other.CompareTag("Coin")) {
+            score += 1;
+            _scoreText.text = "Score: " + score;
+            Debug.Log("Score: " + score);
+            Destroy(other.gameObject);
+        }
     }
 
 }
