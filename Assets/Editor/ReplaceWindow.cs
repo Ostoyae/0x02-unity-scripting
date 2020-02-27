@@ -17,6 +17,7 @@ public class ReplaceWindow : EditorWindow
     {
         Template = (GameObject)EditorGUILayout.ObjectField("Template", Template, typeof(GameObject), false);
 
+        GUI.enabled = false;
         if (Template)
         {
             if (GUILayout.Button("Replace Selected"))
@@ -24,6 +25,7 @@ public class ReplaceWindow : EditorWindow
 
                 foreach (GameObject obj in Selection.gameObjects)
                 {
+                    // https://docs.unity3d.com/ScriptReference/PrefabUtility.InstantiatePrefab.html
                     GameObject prefab = (GameObject)PrefabUtility.InstantiatePrefab(Template);
                     var objXform = obj.transform;
                     var name = objXform.name;
