@@ -15,18 +15,41 @@ public class PlayerController : MonoBehaviour
 
     private int score = 0;
     public int health = 5;
+    private float _startHealth;
+    
     private Text _scoreText;
     private Text _healthText;
+    private Gradient _healthColor;
+
+    public Color healthStart = Color.green;
+    public Color healthEnd = Color.red;
 
 
     // Start is called before the first frame update
     void Start()
     {
+       
+        _healthColor = new Gradient();
+        
+        var colorkey = new GradientColorKey[2];
+        
+        colorkey[0].color = healthStart;
+        colorkey[0].time = 1f;
+        colorkey[1].color = healthEnd;
+        colorkey[1].time = 0f;
+        
+        _healthColor.colorKeys = colorkey;
+
+
+
         _healthText = hud.transform.Find("Health").GetComponent<UnityEngine.UI.Text>();
         _scoreText = hud.transform.Find("Score").GetComponent<UnityEngine.UI.Text>();
 
         _scoreText.text = "Score: " + score;
         _healthText.text = "Health: " + health;
+        _healthText.color = _healthColor.Evaluate(1);
+
+        _startHealth = health;
 
     }
 
@@ -92,6 +115,7 @@ public class PlayerController : MonoBehaviour
         {
             health -= 1;
             _healthText.text = "Health: " + health;
+            _healthText.color = _healthColor.Evaluate(health / _startHealth);
             Debug.Log("Health: " + health);
         }
 
