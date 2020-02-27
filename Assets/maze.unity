@@ -2505,7 +2505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89.1, y: 345}
+  m_AnchoredPosition: {x: -89.1, y: 231}
   m_SizeDelta: {x: 160, y: 49.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566951289
@@ -8976,9 +8976,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3c80e0b20df35458d82b9e7de86477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 20
   hud: {fileID: 1670483366}
   health: 5
+  healthStart: {r: 0, g: 0.6886792, b: 0, a: 1}
+  healthEnd: {r: 1, g: 0, b: 0.07547188, a: 1}
 --- !u!4 &1849791718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 163540508576118427, guid: a2127d8f18c3746f99df9825cc8601ff,
@@ -9999,7 +10001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66.11, y: 345}
+  m_AnchoredPosition: {x: 66.11, y: 230.9999}
   m_SizeDelta: {x: 160, y: 49.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049230003
